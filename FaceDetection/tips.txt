@@ -1,0 +1,98 @@
+
+1. Install Git
+If you don’t have Git installed, you can download and install it from git-scm.com.
+
+2. Setting Up a Repository
+   a. Create a new repository:
+   
+      Locally:
+      Navigate to the directory where you want your project.
+      Open a terminal/command line and run:
+      ```bash
+      git init
+      ```
+      This initializes a new Git repository in that folder.
+
+   b. Create a repository on GitHub:
+      - Go to GitHub, log in, and click on the "+" in the top-right corner.
+      - Choose New Repository, give it a name, and click Create repository.
+
+3. Cloning a Repository (if it exists online)
+   If the repository is already created online (e.g., on GitHub), you can clone it:
+   ```bash
+   git clone https://github.com/username/repository-name.git
+   ```
+
+4. Basic Git Workflow
+   Once you have a repository, you can start adding and committing changes:
+   
+   a. Check the status:
+   ```bash
+   git status
+   ```
+   This will show changes in your working directory.
+
+   b. Add files to be tracked:
+      You can add specific files or all files:
+   ```bash
+   git add <filename>        # For a specific file
+   git add .                 # For all files
+   ```
+
+   c. Commit changes:
+      Once you've added files, commit them with a message:
+   ```bash
+   git commit -m "Your commit message"
+   ```
+
+   d. Push changes to GitHub:
+      To push your changes to the remote repository (on GitHub):
+   ```bash
+   git push origin main   # If the branch is 'main'
+   ```
+
+      If you're pushing for the first time, you might be asked to authenticate your GitHub account.
+
+   e. Pull updates from the remote repository:
+      To fetch and merge updates from the remote repository into your local copy:
+   ```bash
+   git pull origin main    # If the branch is 'main'
+   ```
+
+5. Branching
+   a. Create a new branch:
+   ```bash
+   git checkout -b <branch-name>
+   ```
+   This creates and switches to a new branch.
+
+   b. Switch between branches:
+   ```bash
+   git checkout <branch-name>
+   ```
+
+   c. Merge branches:
+      After you’re done working on a branch, you can merge it back into the main branch:
+   ```bash
+   git checkout main       # Switch to the main branch
+   git merge <branch-name> # Merge the changes from the branch into 'main'
+   ```
+
+6. Viewing History
+   a. View commit history:
+   ```bash
+   git log
+   ```
+
+7. Remove Files
+   a. Remove a file:
+   ```bash
+   git rm <filename>
+   git commit -m "Removed file"
+   ```
+
+   b. Remove a file from Git tracking but keep it locally:
+   ```bash
+   git rm --cached <filename>
+   ```
+
