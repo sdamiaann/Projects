@@ -97,6 +97,14 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
+        #wedding-gif {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
@@ -142,13 +150,14 @@
         <div class="menu-item" onclick="showPopup('The Original', 'Rich, melted chocolate served with fresh fruits.')">The Original - $10</div>
         <div class="menu-item" onclick="showPopup('Pure Chocolate Fondue', 'Decadent chocolate in its purest form.')">Pure Chocolate Fondue - $12</div>
         <div class="menu-item" onclick="showPopup('Flaming Turtle', 'Chocolate with caramel and pecans, flambéed tableside.')">Flaming Turtle - $14</div>
-        <div class="menu-item" onclick="showPopup('My Dearest', 'I love you. I am who I am because of you. You are every reason, every hope, and every dream I`ve ever had, and no matter what happens to us in the future, everyday we are together is the greatest day of my life. I will always be yours.')">My Dearest - $15</div>
+        <div class="menu-item" onclick="showPopupWithNext('My Dearest', 'I love you. I am who I am because of you. You are every reason, every hope, and every dream I`ve ever had, and no matter what happens to us in the future, everyday we are together is the greatest day of my life. I will always be yours.')">My Dearest - $15</div>
     </div>
 
     <div id="popup" class="popup">
         <span class="close-popup" onclick="closePopup()">&times;</span>
         <h2 id="popup-title"></h2>
         <p id="popup-description"></p>
+        <button id="next-button" style="display:none;" onclick="showGif()">Next</button>
     </div>
 
     <div id="danielle-special-popup" class="popup">
@@ -164,6 +173,10 @@
         <p id="response" class="response">womp womp, wrong answer Babe</p>
     </div>
 
+    <div id="wedding-gif">
+        <img src="https://media.giphy.com/media/l41YivnR97LKbuaYg/giphy.gif?cid=ecf05e47vtemw0y2n65vmay2pb5zassp0fm7gdc15icppka0&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Wedding GIF">
+    </div>
+
     <div id="overlay" onclick="closePopup()"></div>
 
     <script>
@@ -172,20 +185,12 @@
             document.getElementById("popup-description").textContent = description;
             document.getElementById("popup").style.display = "block";
             document.getElementById("overlay").style.display = "block";
+            document.getElementById("next-button").style.display = "none";
         }
-
         function showDanielleSpecial() {
             document.getElementById("danielle-special-popup").style.display = "block";
             document.getElementById("overlay").style.display = "block";
         }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("danielle-special-popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-            document.getElementById("response").style.display = "none";
-        }
-
         function showYesResponse() {
             alert("Another Valentines with my Baby❤, P.S Click on My Dearest... ");
         }
@@ -193,6 +198,24 @@
         function showNoResponse() {
             const response = document.getElementById("response");
             response.style.display = "block";
+        }
+
+        function showPopupWithNext(title, description) {
+            showPopup(title, description);
+            document.getElementById("next-button").style.display = "inline-block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("danielle-special-popup").style.display = "none";
+            document.getElementById("wedding-gif").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("response").style.display = "none";
+        }
+
+        function showGif() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("wedding-gif").style.display = "block";
         }
     </script>
 </body>
