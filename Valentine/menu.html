@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Special Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            padding: 20px;
+        }
+        .menu-section {
+            margin-top: 30px;
+        }
+        .menu-section h2 {
+            background-color: #ff9999;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu-item {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ff9999;
+            border-radius: 5px;
+            margin: 10px auto;
+            width: 300px;
+            text-align: left;
+            color: #b30000;
+        }
+        .menu-item:hover {
+            background-color: #ffe6e6;
+        }
+        #special {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #b30000;
+        }
+        #poem {
+            font-style: italic;
+            margin-top: 10px;
+        }
+        img {
+            margin-top: 20px;
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Valentine's Menu</h1>
+
+    <div class="menu-section">
+        <h2>Cheese Fondue</h2>
+        <div class="menu-item">Wisconsin Cheddar</div>
+        <div class="menu-item">Classic Alpine</div>
+        <div class="menu-item">Spinach Artichoke</div>
+        <div class="menu-item">Fiesta</div>
+        <div class="menu-item">Wisconsin Trio</div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Salad</h2>
+        <div class="menu-item">Caesar</div>
+        <div class="menu-item">California</div>
+        <div class="menu-item">Strawberry Pecan</div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Entrée Fondue</h2>
+        <div class="menu-item">The Classic</div>
+        <div class="menu-item">Steak Lovers</div>
+        <div class="menu-item">Land and Sea</div>
+        <div class="menu-item">Pacific Rim</div>
+        <div class="menu-item">Create Your Own</div>
+        <div class="menu-item" onclick="showSpecial()">Danielle's Special</div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Fondue Cooking Styles</h2>
+        <div class="menu-item">Court Bouillon</div>
+        <div class="menu-item">Coq au Vin</div>
+        <div class="menu-item">Mojo</div>
+        <div class="menu-item">Cast Iron Grill</div>
+        <div class="menu-item">Bourguignonne</div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Chocolate Fondue</h2>
+        <div class="menu-item">The Original</div>
+        <div class="menu-item">Pure Chocolate Fondue</div>
+        <div class="menu-item">Flaming Turtle</div>
+        <div class="menu-item">Yin & Yang</div>
+    </div>
+
+    <div id="special">
+        <h2>Danielle's Special</h2>
+        <p id="poem">Roses are red, violets are blue,<br>
+        No dish compares, to time spent with you.<br>
+        Under the stars, our love will shine bright,<br>
+        Will you be my Valentine, my heart's delight?</p>
+        <img src="https://example.com/your-image.jpg" alt="A special picture">
+    </div>
+
+    <script>
+        function showSpecial() {
+            document.getElementById("special").style.display = "block";
+        }
+    </script>
+</body>
+</html>
