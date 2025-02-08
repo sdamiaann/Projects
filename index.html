@@ -56,6 +56,29 @@
         .popup p {
             margin: 20px 0;
         }
+        .popup button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .popup .yes {
+            background-color: #ff69b4;
+            color: white;
+            font-family: "Brush Script MT", cursive;
+        }
+        .popup .no {
+            background-color: #b30000;
+            color: white;
+            font-family: "Brush Script MT", cursive;
+        }
+        .popup .response {
+            color: red;
+            margin-top: 20px;
+            display: none;
+        }
         .close-popup {
             position: absolute;
             top: 10px;
@@ -81,12 +104,12 @@
 
     <div class="menu-section">
         <h2>Cheese Fondue</h2>
-        <div class="menu-item" onclick="showPopup('Wisconsin Cheddar', 'A rich blend of aged cheddar cheese and spices.')">Wisconsin Cheddar - $12.99</div>
+        <div class="menu-item" onclick="showPopup('Wisconsin Cheddar', 'A rich blend of aged cheddar cheese and spices.')">Wisconsin Cheddar - $12</div>
         <div class="menu-item" onclick="showPopup('Classic Alpine', 'A smooth mix of Gruyère, Raclette, and white wine.')">Classic Alpine - $14</div>
         <div class="menu-item" onclick="showPopup('Spinach Artichoke', 'A creamy blend of spinach, artichokes, and melted cheese.')">Spinach Artichoke - $13</div>
         <div class="menu-item" onclick="showPopup('Fiesta', 'A zesty combination of cheddar, jalapeños, and salsa.')">Fiesta - $15</div>
         <div class="menu-item" onclick="showPopup('Wisconsin Trio', 'A trio of sharp cheddar, aged Swiss, and rich cream cheese.')">Wisconsin Trio - $16</div>
-        <div class="menu-item" onclick="showPopup('Danielle\'s Special', 'A signature cheese fondue made with love and served with a personal touch.')">Danielle's Special - $20</div>
+        <div class="menu-item" onclick="showDanielleSpecial()">Danielle's Special - $20</div>
     </div>
 
     <div class="menu-section">
@@ -128,6 +151,18 @@
         <p id="popup-description"></p>
     </div>
 
+    <div id="danielle-special-popup" class="popup">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <h2>Danielle's Special</h2>
+        <p>Roses are red, violets are blue,<br>
+        No dish compares, to time spent with you.<br>
+        Under the stars, our love will shine bright,<br>
+        Will you be my Valentine, my heart's delight?</p>
+        <button class="yes" onclick="showYesResponse()">Yes</button>
+        <button class="no" onclick="showNoResponse()">No</button>
+        <p id="response" class="response">womp womp wrong answer</p>
+    </div>
+
     <div id="overlay" onclick="closePopup()"></div>
 
     <script>
@@ -138,9 +173,25 @@
             document.getElementById("overlay").style.display = "block";
         }
 
+        function showDanielleSpecial() {
+            document.getElementById("danielle-special-popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
         function closePopup() {
             document.getElementById("popup").style.display = "none";
+            document.getElementById("danielle-special-popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
+            document.getElementById("response").style.display = "none";
+        }
+
+        function showYesResponse() {
+            alert("Yay! You chose the right answer! ❤");
+        }
+
+        function showNoResponse() {
+            const response = document.getElementById("response");
+            response.style.display = "block";
         }
     </script>
 </body>
