@@ -35,20 +35,45 @@
         .menu-item:hover {
             background-color: #ffe6e6;
         }
-        #special {
+        #special-popup {
             display: none;
-            margin-top: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid #ff9999;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            width: 80%;
+            max-width: 400px;
+        }
+        #special-popup h2 {
+            margin: 0;
+        }
+        #special-popup p {
+            font-style: italic;
+            margin: 20px 0;
+        }
+        #close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
             font-size: 18px;
             color: #b30000;
         }
-        #poem {
-            font-style: italic;
-            margin-top: 10px;
-        }
-        img {
-            margin-top: 20px;
-            width: 200px;
-            border-radius: 10px;
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
@@ -57,59 +82,67 @@
 
     <div class="menu-section">
         <h2>Cheese Fondue</h2>
-        <div class="menu-item">Wisconsin Cheddar</div>
-        <div class="menu-item">Classic Alpine</div>
-        <div class="menu-item">Spinach Artichoke</div>
-        <div class="menu-item">Fiesta</div>
-        <div class="menu-item">Wisconsin Trio</div>
+        <div class="menu-item">Wisconsin Cheddar - $12</div>
+        <div class="menu-item">Classic Alpine - $14</div>
+        <div class="menu-item">Spinach Artichoke - $13</div>
+        <div class="menu-item">Fiesta - $15</div>
+        <div class="menu-item">Wisconsin Trio - $16</div>
+        <div class="menu-item" onclick="showSpecial()">Danielle's Special - $20</div>
     </div>
 
     <div class="menu-section">
         <h2>Salad</h2>
-        <div class="menu-item">Caesar</div>
-        <div class="menu-item">California</div>
-        <div class="menu-item">Strawberry Pecan</div>
+        <div class="menu-item">Caesar - $8</div>
+        <div class="menu-item">California - $9</div>
+        <div class="menu-item">Strawberry Pecan - $10</div>
     </div>
 
     <div class="menu-section">
         <h2>Entrée Fondue</h2>
-        <div class="menu-item">The Classic</div>
-        <div class="menu-item">Steak Lovers</div>
-        <div class="menu-item">Land and Sea</div>
-        <div class="menu-item">Pacific Rim</div>
-        <div class="menu-item">Create Your Own</div>
-        <div class="menu-item" onclick="showSpecial()">Danielle's Special</div>
+        <div class="menu-item">The Classic - $25</div>
+        <div class="menu-item">Steak Lovers - $30</div>
+        <div class="menu-item">Land and Sea - $28</div>
+        <div class="menu-item">Pacific Rim - $27</div>
+        <div class="menu-item">Create Your Own - $35</div>
     </div>
 
     <div class="menu-section">
         <h2>Fondue Cooking Styles</h2>
-        <div class="menu-item">Court Bouillon</div>
-        <div class="menu-item">Coq au Vin</div>
-        <div class="menu-item">Mojo</div>
-        <div class="menu-item">Cast Iron Grill</div>
-        <div class="menu-item">Bourguignonne</div>
+        <div class="menu-item">Court Bouillon - $5</div>
+        <div class="menu-item">Coq au Vin - $6</div>
+        <div class="menu-item">Mojo - $5</div>
+        <div class="menu-item">Cast Iron Grill - $7</div>
+        <div class="menu-item">Bourguignonne - $8</div>
     </div>
 
     <div class="menu-section">
         <h2>Chocolate Fondue</h2>
-        <div class="menu-item">The Original</div>
-        <div class="menu-item">Pure Chocolate Fondue</div>
-        <div class="menu-item">Flaming Turtle</div>
-        <div class="menu-item">Yin & Yang</div>
+        <div class="menu-item">The Original - $10</div>
+        <div class="menu-item">Pure Chocolate Fondue - $12</div>
+        <div class="menu-item">Flaming Turtle - $14</div>
+        <div class="menu-item">Yin & Yang - $15</div>
     </div>
 
-    <div id="special">
+    <div id="special-popup">
+        <span id="close-popup" onclick="closeSpecialPopup()">&times;</span>
         <h2>Danielle's Special</h2>
-        <p id="poem">Roses are red, violets are blue,<br>
+        <p>Roses are red, violets are blue,<br>
         No dish compares, to time spent with you.<br>
         Under the stars, our love will shine bright,<br>
         Will you be my Valentine, my heart's delight?</p>
-        <img src="https://example.com/your-image.jpg" alt="A special picture">
     </div>
+
+    <div id="overlay" onclick="closeSpecialPopup()"></div>
 
     <script>
         function showSpecial() {
-            document.getElementById("special").style.display = "block";
+            document.getElementById("special-popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closeSpecialPopup() {
+            document.getElementById("special-popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
         }
     </script>
 </body>
