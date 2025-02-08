@@ -1,9 +1,11 @@
 import qrcode
 
-# Replace with your hosted file URL
-url = "https://bit.ly/MeltingPotFebuaryMenu"
+import qrcode
 
-# Create QR code
+# Replace with your custom domain URL
+url = "http://www.meltingpotfebruarymenu.com"
+
+# Create the QR code
 qr = qrcode.QRCode(version=1, box_size=10, border=5)
 qr.add_data(url)
 qr.make(fit=True)
