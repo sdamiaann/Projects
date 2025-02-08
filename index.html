@@ -35,7 +35,7 @@
         .menu-item:hover {
             background-color: #ffe6e6;
         }
-        #special-popup {
+        .popup {
             display: none;
             position: fixed;
             top: 50%;
@@ -50,14 +50,13 @@
             width: 80%;
             max-width: 400px;
         }
-        #special-popup h2 {
+        .popup h2 {
             margin: 0;
         }
-        #special-popup p {
-            font-style: italic;
+        .popup p {
             margin: 20px 0;
         }
-        #close-popup {
+        .close-popup {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -82,66 +81,65 @@
 
     <div class="menu-section">
         <h2>Cheese Fondue</h2>
-        <div class="menu-item">Wisconsin Cheddar - $12</div>
-        <div class="menu-item">Classic Alpine - $14</div>
-        <div class="menu-item">Spinach Artichoke - $13</div>
-        <div class="menu-item">Fiesta - $15</div>
-        <div class="menu-item">Wisconsin Trio - $16</div>
-        <div class="menu-item" onclick="showSpecial()">Danielle's Special - $20</div>
+        <div class="menu-item" onclick="showPopup('Wisconsin Cheddar', 'A rich blend of aged cheddar cheese and spices.')">Wisconsin Cheddar - $12</div>
+        <div class="menu-item" onclick="showPopup('Classic Alpine', 'A smooth mix of Gruyère, Raclette, and white wine.')">Classic Alpine - $14</div>
+        <div class="menu-item" onclick="showPopup('Spinach Artichoke', 'A creamy blend of spinach, artichokes, and melted cheese.')">Spinach Artichoke - $13</div>
+        <div class="menu-item" onclick="showPopup('Fiesta', 'A zesty combination of cheddar, jalapeños, and salsa.')">Fiesta - $15</div>
+        <div class="menu-item" onclick="showPopup('Wisconsin Trio', 'A trio of sharp cheddar, aged Swiss, and rich cream cheese.')">Wisconsin Trio - $16</div>
+        <div class="menu-item" onclick="showPopup('Danielle\'s Special', 'A signature cheese fondue made with love and served with a personal touch.')">Danielle's Special - $20</div>
     </div>
 
     <div class="menu-section">
         <h2>Salad</h2>
-        <div class="menu-item">Caesar - $8</div>
-        <div class="menu-item">California - $9</div>
-        <div class="menu-item">Strawberry Pecan - $10</div>
+        <div class="menu-item" onclick="showPopup('Caesar', 'Crisp romaine lettuce with Parmesan, croutons, and Caesar dressing.')">Caesar - $8</div>
+        <div class="menu-item" onclick="showPopup('California', 'Mixed greens, candied pecans, and a raspberry vinaigrette.')">California - $9</div>
+        <div class="menu-item" onclick="showPopup('Strawberry Pecan', 'Fresh strawberries, pecans, and a lemon poppyseed dressing.')">Strawberry Pecan - $10</div>
     </div>
 
     <div class="menu-section">
         <h2>Entrée Fondue</h2>
-        <div class="menu-item">The Classic - $25</div>
-        <div class="menu-item">Steak Lovers - $30</div>
-        <div class="menu-item">Land and Sea - $28</div>
-        <div class="menu-item">Pacific Rim - $27</div>
-        <div class="menu-item">Create Your Own - $35</div>
+        <div class="menu-item" onclick="showPopup('The Classic', 'A hearty selection of beef, chicken, and pork.')">The Classic - $25</div>
+        <div class="menu-item" onclick="showPopup('Steak Lovers', 'Premium cuts of steak grilled to perfection.')">Steak Lovers - $30</div>
+        <div class="menu-item" onclick="showPopup('Land and Sea', 'A delicious combination of seafood and poultry.')">Land and Sea - $28</div>
+        <div class="menu-item" onclick="showPopup('Pacific Rim', 'An exotic blend of seafood with Asian-inspired flavors.')">Pacific Rim - $27</div>
+        <div class="menu-item" onclick="showPopup('Create Your Own', 'Choose your favorite meats and vegetables to customize your meal.')">Create Your Own - $35</div>
     </div>
 
     <div class="menu-section">
         <h2>Fondue Cooking Styles</h2>
-        <div class="menu-item">Court Bouillon - $5</div>
-        <div class="menu-item">Coq au Vin - $6</div>
-        <div class="menu-item">Mojo - $5</div>
-        <div class="menu-item">Cast Iron Grill - $7</div>
-        <div class="menu-item">Bourguignonne - $8</div>
+        <div class="menu-item" onclick="showPopup('Court Bouillon', 'A seasoned vegetable broth for a light, flavorful experience.')">Court Bouillon - $5</div>
+        <div class="menu-item" onclick="showPopup('Coq au Vin', 'A rich Burgundy wine broth with mushrooms and spices.')">Coq au Vin - $6</div>
+        <div class="menu-item" onclick="showPopup('Mojo', 'A Caribbean-inspired broth with garlic, cilantro, and citrus.')">Mojo - $5</div>
+        <div class="menu-item" onclick="showPopup('Cast Iron Grill', 'A tabletop grill for a unique cooking style.')">Cast Iron Grill - $7</div>
+        <div class="menu-item" onclick="showPopup('Bourguignonne', 'A classic French oil preparation for frying meats and vegetables.')">Bourguignonne - $8</div>
     </div>
 
     <div class="menu-section">
         <h2>Chocolate Fondue</h2>
-        <div class="menu-item">The Original - $10</div>
-        <div class="menu-item">Pure Chocolate Fondue - $12</div>
-        <div class="menu-item">Flaming Turtle - $14</div>
-        <div class="menu-item">Yin & Yang - $15</div>
+        <div class="menu-item" onclick="showPopup('The Original', 'Rich, melted chocolate served with fresh fruits.')">The Original - $10</div>
+        <div class="menu-item" onclick="showPopup('Pure Chocolate Fondue', 'Decadent chocolate in its purest form.')">Pure Chocolate Fondue - $12</div>
+        <div class="menu-item" onclick="showPopup('Flaming Turtle', 'Chocolate with caramel and pecans, flambéed tableside.')">Flaming Turtle - $14</div>
+        <div class="menu-item" onclick="showPopup('Yin & Yang', 'A perfect blend of dark and white chocolate.')">Yin & Yang - $15</div>
     </div>
 
-    <div id="special-popup">
-        <span id="close-popup" onclick="closeSpecialPopup()">&times;</span>
-        <h2>Danielle's Special</h2>
-        <p>Roses are red, violets are blue,<br>
-        No dish compares, to time spent with you.<br>
-        Under the stars, our love will shine bright,<br>
-        Will you be my Valentine, my heart's delight?</p>
+    <div id="popup" class="popup">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
     </div>
 
-    <div id="overlay" onclick="closeSpecialPopup()"></div>
+    <div id="overlay" onclick="closePopup()"></div>
 
     <script>
-        function showSpecial() {
-            document.getElementById("special-popup").style.display = "block";
+        function showPopup(title, description) {
+            document.getElementById("popup-title").textContent = title;
+            document.getElementById("popup-description").textContent = description;
+            document.getElementById("popup").style.display = "block";
             document.getElementById("overlay").style.display = "block";
         }
 
-        function closeSpecialPopup() {
-            document.getElementById("special-popup").style.display = "none";
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
         }
     </script>
